@@ -1,0 +1,23 @@
+version: 2
+jobs:
+  test:
+    docker: # use the docker executor type; machine and macos executors are also supported
+      - image: cimg/node:16.14
+    steps:
+      - checkout
+      - run:
+          name: Install Dev Dependencies
+          command: npm install
+      - run:
+          name: Run Tests
+          command: npm run ci-tests
+          environment:
+            JEST_JUNIT_OUTPUT: test-results/results.xml
+      - store_test_results:
+            path: test-results
+
+workflows:
+  version: 2
+  workflow:
+    jobs:
+      - test

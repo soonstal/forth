@@ -1,0 +1,69 @@
+{
+  "name": "@juggle/resize-observer",
+  "version": "3.3.1",
+  "description": "Polyfills the ResizeObserver API and supports box size options from the latest spec",
+  "main": "lib/exports/resize-observer.umd.js",
+  "module": "lib/exports/resize-observer.js",
+  "types": "lib/exports/resize-observer.d.ts",
+  "files": [
+    "lib/**/*.{js,ts}"
+  ],
+  "scripts": {
+    "build": "rm -rf lib && npm run build:esm && npm run build:umd",
+    "build:esm": "tsc",
+    "build:umd": "rollup -c",
+    "build:docs": "echo 'no longer building docs for this version'",
+    "ci-tests": "npm test -- --ci --runInBand && cat coverage/lcov.info | coveralls",
+    "test": "npm run lint && jest --coverage",
+    "lint": "eslint '{src,test}/**/*.ts'",
+    "preVersion": "npm run build-docs",
+    "prepublishOnly": "npm run build"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/juggle/resize-observer.git"
+  },
+  "keywords": [
+    "ResizeObserver",
+    "polyfill",
+    "ponyfill",
+    "event",
+    "resize",
+    "observer",
+    "typescript",
+    "javascript",
+    "element",
+    "component",
+    "container",
+    "queries",
+    "web components",
+    "front-end",
+    "html",
+    "Angular",
+    "React",
+    "Vue"
+  ],
+  "author": "Juggle",
+  "license": "Apache-2.0",
+  "bugs": {
+    "url": "https://github.com/juggle/resize-observer/issues"
+  },
+  "homepage": "https://juggle.studio/resize-observer/",
+  "devDependencies": {
+    "@types/jest": "^28.1.7",
+    "@typescript-eslint/eslint-plugin": "^5.33.1",
+    "@typescript-eslint/parser": "^5.33.1",
+    "core-js": "^3.24.1",
+    "coveralls": "^3.1.1",
+    "cssnano": "^5.1.13",
+    "eslint": "^8.22.0",
+    "jest": "^28.1.3",
+    "jest-cli": "^28.1.3",
+    "jest-environment-jsdom": "^28.1.3",
+    "jest-junit": "^14.0.0",
+    "jsdom": "^20.0.0",
+    "rollup": "^2.78.0",
+    "ts-jest": "^28.0.8",
+    "typescript": "^4.7.4"
+  }
+}
