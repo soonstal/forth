@@ -43,7 +43,7 @@ class DOMRectReadOnly {
     return freeze(this);
   }
   public toJSON (): DOMRectJSON {
-    let { x, y, top, right, bottom, left, width, height } = this;
+    const { x, y, top, right, bottom, left, width, height } = this;
     return { x, y, top, right, bottom, left, width, height };
   }
   public static fromRect (rectangle: Rectangle): Readonly<DOMRectReadOnly> {
