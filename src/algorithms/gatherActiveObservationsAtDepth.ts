@@ -8,7 +8,7 @@ import { calculateDepthForNode } from './calculateDepthForNode';
  * 
  * https://drafts.csswg.org/resize-observer-1/#gather-active-observations-h
  */
-const gatherActiveObservationsAtDepth = (depth: number): void => {
+let gatherActiveObservationsAtDepth = (depth: number): void => {
   resizeObservers.forEach(function processObserver(ro: ResizeObserverDetail): void {
     ro.activeTargets.splice(0, ro.activeTargets.length);
     ro.skippedTargets.splice(0, ro.skippedTargets.length);
