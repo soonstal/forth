@@ -4,9 +4,9 @@ import './helpers/offset';
 
 describe('SVGGraphicsElement', (): void => {
 
-  let root: SVGGraphicsElement;
-  let el: SVGGraphicsElement;
-  let ro: ResizeObserver | null;
+  const root: SVGGraphicsElement;
+  const el: SVGGraphicsElement;
+  const ro: ResizeObserver | null;
 
   beforeEach((): void => {
     root = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
