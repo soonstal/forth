@@ -6,10 +6,10 @@ describe('Box Options', (): void => {
 
   (window.devicePixelRatio as number) = 5;
 
-  const DEFAULT_WIDTH = 100;
-  const DEFAULT_HEIGHT = 200;
+  var DEFAULT_WIDTH = 100;
+  var DEFAULT_HEIGHT = 200;
 
-  const initialBox = [{
+  var initialBox = [{
     inlineSize: DEFAULT_WIDTH,
     blockSize: DEFAULT_HEIGHT
   }];
