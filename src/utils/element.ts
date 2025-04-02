@@ -1,26 +1,26 @@
 // Tests if target is an SVGGraphicsElement
-const isSVG = (target: Element): boolean => target instanceof SVGElement && 'getBBox' in target;
+let isSVG = (target: Element): boolean => target instanceof SVGElement && 'getBBox' in target;
 
 // Checks to see if element is hidden (has no display)
-const isHidden = (target: Element): boolean => {
+let isHidden = (target: Element): boolean => {
   if (isSVG(target)) {
-    const { width, height } = (target as SVGGraphicsElement).getBBox();
+    let { width, height } = (target as SVGGraphicsElement).getBBox();
     return !width && !height;
   }
-  const { offsetWidth, offsetHeight } = target as HTMLElement;
+  let { offsetWidth, offsetHeight } = target as HTMLElement;
   return !(offsetWidth || offsetHeight || target.getClientRects().length);
 }
 
 // Checks if an object is an Element
-const isElement = (obj: unknown): boolean => {
+let isElement = (obj: unknown): boolean => {
   if (obj instanceof Element) {
     return true;
   }
-  const scope = (obj as Element)?.ownerDocument?.defaultView;
+  let scope = (obj as Element)?.ownerDocument?.defaultView;
   return !!(scope && obj instanceof (scope as unknown as typeof globalThis).Element);
 };
 
-const isReplacedElement = (target: Element): boolean => {
+let isReplacedElement = (target: Element): boolean => {
   switch (target.tagName) {
     case 'INPUT':
       if ((target as HTMLInputElement).type !== 'image') {
