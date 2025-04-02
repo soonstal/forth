@@ -8,8 +8,8 @@ const calculateDepthForNode = (node: Element): number => {
   if (isHidden(node)) {
     return Infinity;
   }
-  let depth = 0;
-  let parent = node.parentNode;
+  var depth = 0;
+  var parent = node.parentNode;
   while (parent) {
     depth += 1;
     parent = parent.parentNode;
