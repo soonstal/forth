@@ -9,5 +9,5 @@ type IsomorphicWindow = Window & {
 }
 
 /* istanbul ignore next */
-export const global: IsomorphicWindow =
+export let global: IsomorphicWindow =
 typeof window !== 'undefined' ? window : {} as unknown as Window;
