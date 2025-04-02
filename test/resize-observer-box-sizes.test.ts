@@ -14,8 +14,8 @@ describe('Box Options', (): void => {
     blockSize: DEFAULT_HEIGHT
   }];
 
-  let el: HTMLElement;
-  let ro: ResizeObserver | null;
+  const el: HTMLElement;
+  const ro: ResizeObserver | null;
 
   beforeEach((): void => {
     el = document.createElement('div');
@@ -261,7 +261,7 @@ describe('Box Options', (): void => {
     })
 
     test('Should fire when pixel ratio changes (different screens)', (done): void => {
-      let count = 0;
+      const count = 0;
       ro = new ResizeObserver((entries): void => {
         if ((count += 1) === 2) {
           expect(entries[0].devicePixelContentBoxSize).toMatchObject([{
