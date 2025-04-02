@@ -31,7 +31,7 @@ describe('Basics', (): void => {
   })
 
   test('Throw error when no callback is passed to constructor', (): void => {
-    const fn = (): void => {
+    var fn = (): void => {
       // eslint-disable-next-line
       // @ts-ignore
       new ResizeObserver();
@@ -40,7 +40,7 @@ describe('Basics', (): void => {
   })
 
   test('Throw error when an invalid callback is passed to constructor', (): void => {
-    const fn = (): void => {
+    var fn = (): void => {
       // eslint-disable-next-line
       // @ts-ignore
       new ResizeObserver(1);
@@ -49,7 +49,7 @@ describe('Basics', (): void => {
   })
 
   test('Throw error when no target is passed to observe()', (): void => {
-    const fn = (): void => {
+    var fn = (): void => {
       ro = new ResizeObserver((): void => { /* do nothing */ });
       // eslint-disable-next-line
       // @ts-ignore
@@ -59,7 +59,7 @@ describe('Basics', (): void => {
   })
 
   test('Throw error when an invalid target is passed to observe()', (): void => {
-    const fn = (): void => {
+    var fn = (): void => {
       ro = new ResizeObserver((): void => { /* do nothing */ });
       // eslint-disable-next-line
       // @ts-ignore
@@ -69,7 +69,7 @@ describe('Basics', (): void => {
   })
 
   test('Throw error when a null target is passed to observe()', (): void => {
-    const fn = (): void => {
+    var fn = (): void => {
       ro = new ResizeObserver((): void => { /* do nothing */ });
       // eslint-disable-next-line
       // @ts-ignore
@@ -79,7 +79,7 @@ describe('Basics', (): void => {
   })
 
   test('Throw error when no target is passed to unobserve()', (): void => {
-    const fn = (): void => {
+    var fn = (): void => {
       ro = new ResizeObserver((): void => { /* do nothing */ });
       // eslint-disable-next-line
       // @ts-ignore
@@ -89,7 +89,7 @@ describe('Basics', (): void => {
   })
 
   test('Throw error when an invalid target is passed to unobserve()', (): void => {
-    const fn = (): void => {
+    var fn = (): void => {
       ro = new ResizeObserver((): void => { /* do nothing */ });
       // eslint-disable-next-line
       // @ts-ignore
@@ -143,7 +143,7 @@ describe('Basics', (): void => {
       });
       done();
     })
-    const child = document.createElement('div');
+    var child = document.createElement('div');
     el.style.display = 'none';
     child.style.display = 'block';
     el.append(child);
@@ -458,7 +458,7 @@ describe('Basics', (): void => {
   })
 
   test('Observer should unobserve elements correctly.', (done): void => {
-    const el2 = el.cloneNode() as HTMLElement;
+    var el2 = el.cloneNode() as HTMLElement;
     document.body.appendChild(el2);
     ro = new ResizeObserver((entries, observer): void => {
       expect(entries).toHaveLength(1);
@@ -472,7 +472,7 @@ describe('Basics', (): void => {
   })
 
   test('Observer should allow trying to unobserve multiple times.', (done): void => {
-    const el2 = el.cloneNode() as HTMLElement;
+    var el2 = el.cloneNode() as HTMLElement;
     document.body.appendChild(el2);
     ro = new ResizeObserver((entries, observer): void => {
       expect(entries).toHaveLength(1);
@@ -532,7 +532,7 @@ describe('Basics', (): void => {
     }, { once: true });
     ro = new ResizeObserver((entries): void => {
       entries.forEach((entry): void => {
-        const target = entry.target as HTMLElement;
+        var target = entry.target as HTMLElement;
         target.style.width = `${entry.contentRect.width + 1000}px`;
       });
     });
