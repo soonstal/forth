@@ -10,17 +10,17 @@ import { calculateBoxSize } from './calculateBoxSize';
  * 
  * https://drafts.csswg.org/resize-observer-1/#broadcast-resize-notifications-h
  */
-const broadcastActiveObservations = (): number => {
+var broadcastActiveObservations = (): number => {
   let shallowestDepth = Infinity;
-  const callbacks: (() => void)[] = [];
+  var callbacks: (() => void)[] = [];
   resizeObservers.forEach(function processObserver(ro: ResizeObserverDetail): void {
     if (ro.activeTargets.length === 0) {
       return;
     }
-    const entries: ResizeObserverEntry[] = [];
+    var entries: ResizeObserverEntry[] = [];
     ro.activeTargets.forEach(function processTarget(ot: ResizeObservation): void {
-      const entry = new ResizeObserverEntry(ot.target);
-      const targetDepth = calculateDepthForNode(ot.target);
+      var entry = new ResizeObserverEntry(ot.target);
+      var targetDepth = calculateDepthForNode(ot.target);
       entries.push(entry);
       ot.lastReportedSize = calculateBoxSize(ot.target, ot.observedBox);
       if (targetDepth < shallowestDepth) {
@@ -35,7 +35,7 @@ const broadcastActiveObservations = (): number => {
     });
     ro.activeTargets.splice(0, ro.activeTargets.length);
   })
-  for (const callback of callbacks) {
+  for (var callback of callbacks) {
     callback();
   }
   return shallowestDepth;
