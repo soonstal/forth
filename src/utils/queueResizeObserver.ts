@@ -1,6 +1,6 @@
 import { queueMicroTask } from './queueMicroTask';
 
-const queueResizeObserver = (cb: () => void): void => {
+let queueResizeObserver = (cb: () => void): void => {
   queueMicroTask(function ResizeObserver (): void {
     requestAnimationFrame(cb);
   });
