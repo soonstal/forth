@@ -49,9 +49,9 @@ describe('DOMRectReadOnly', (): void => {
     });
   });
   it('Should support toJSON()', (): void => {
-    var rect = new DOMRectReadOnly(5, 10, 15, 20);
+    const rect = new DOMRectReadOnly(5, 10, 15, 20);
     expect('toJSON' in rect).toBeTruthy;
-    var rectJSON = rect.toJSON();
+    const rectJSON = rect.toJSON();
     expect('toJSON' in rectJSON).toBeFalsy;
     expect(rectJSON).toMatchObject({
       x: 5,
