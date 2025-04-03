@@ -1,4 +1,4 @@
-const msg = 'ResizeObserver loop completed with undelivered notifications.';
+var msg = 'ResizeObserver loop completed with undelivered notifications.';
 
 interface LegacyEvent extends Event {
   message: string;
@@ -9,7 +9,7 @@ interface LegacyEvent extends Event {
  * 
  * https://drafts.csswg.org/resize-observer-1/#deliver-resize-error
  */
-const deliverResizeLoopError = (): void => {
+var deliverResizeLoopError = (): void => {
   let event;
   /* istanbul ignore else  */
   if (typeof ErrorEvent === 'function') {
