@@ -4,8 +4,8 @@ import './helpers/offset';
 
 describe('Inline elements', (): void => {
 
-  let el: HTMLElement;
-  let ro: ResizeObserver | null;
+  var el: HTMLElement;
+  var ro: ResizeObserver | null;
 
   const createElement = (name: string): void => {
     el = document.createElement(name);
