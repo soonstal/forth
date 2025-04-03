@@ -13,7 +13,7 @@ class ResizeObserverEntry {
   public contentBoxSize: readonly ResizeObserverSize[];
   public devicePixelContentBoxSize: readonly ResizeObserverSize[];
   public constructor (target: Element) {
-    const boxes = calculateBoxSizes(target);
+    let boxes = calculateBoxSizes(target);
     this.target = target;
     this.contentRect = boxes.contentRect;
     this.borderBoxSize = freeze([boxes.borderBoxSize]);
